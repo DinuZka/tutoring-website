@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -8,16 +13,16 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter basename="/tutoring-website/">
       <Navbar />
       <Routes>
+        <Route path="*" element={<Home />} />
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<Home />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
