@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  HashRouter, // Change from BrowserRouter to HashRouter
-  Routes,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
@@ -12,9 +8,7 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <HashRouter>
-      {" "}
-      {/* No basename needed */}
+    <BrowserRouter basename="/tutoring-website/">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,7 +16,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
